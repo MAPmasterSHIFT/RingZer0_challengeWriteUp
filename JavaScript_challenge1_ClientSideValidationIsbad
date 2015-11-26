@@ -1,0 +1,46 @@
+MAP_masterSHIFT - Client Side Validation is bad !
+
+
+
+First, client side validation points to the problem -> Client-side javascript authentification.
+
+You only have to open the source of the page, check for some Javascript and you see this :
+
+<script>
+
+			// Look's like weak JavaScript auth script :)
+
+			$(".c_submit").click(function() {
+
+				var u = $("#cuser").val();
+
+				var p = $("#cpass").val();
+
+				if(u == "admin" && p == String.fromCharCode(74,97,118,97,83,99,114,105,112,116,73,115,83,101,99,117,114,101)) {
+
+				    if(document.location.href.indexOf("?p=") == -1) {   
+
+				        document.location = document.location.href + "?p=" + p;
+
+				    }
+
+				} else {
+
+				    $("#cresponse").html("<div class='error'>Wrong password sorry.</div>");
+
+				}
+
+			});
+
+		</script>
+
+
+
+
+From that code, you can see that the page takes $("#cuser").val() and $("#cpass").val() and store them as the u and p variables.
+
+then it checks if the username is admin	and the password == String.fromCharCode(74,97,118,97,83,99,114,105,112,116,73,115,83,101,99,117,114,101))
+
+You just need to translate the decimals into text (I used Xlate (http://paulschou.com/tools/xlate/) for this task) and you
+
+have the password : JavaScriptIsSecure.
