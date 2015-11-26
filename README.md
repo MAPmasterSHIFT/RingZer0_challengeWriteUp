@@ -1,1 +1,0 @@
-# RingZer0_challengeWriteUp
